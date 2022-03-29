@@ -26,9 +26,16 @@ gimpCoordinates = [271 894;
     1458 842;
     1348 893];
 
-gimpCoordinatesTransformed = [gimpCoordinates(:, 1), (dimmensions(2) - gimpCoordinates(:, 2))]
+gimpCoordinatesTransformed = [gimpCoordinates(:, 1), (dimmensions(2) - gimpCoordinates(:, 2))];
 
-getDirections(gimpCoordinatesTransformed(1, :), gimpCoordinatesTransformed(2, :), 1)
+[n, ~] = size(gimpCoordinatesTransformed);
+
+for i = 1 : n-1
+    directions(i, :) = getDirections(gimpCoordinatesTransformed(i, :), gimpCoordinatesTransformed(i + 1, :), 1);
+end
+
+directions(n, :) = getDirections(gimpCoordinatesTransformed(n, :), gimpCoordinatesTransformed(1, :), 1);
+
 
 function directions = getDirections(beg, finish, velocity)
     % velocity from 0 to 1
@@ -38,5 +45,5 @@ function directions = getDirections(beg, finish, velocity)
     directionsRaw = finish - beg;
     
     vectorLength = sqrt(directionsRaw(1)^2 + directionsRaw(2)^2);
-    directions = translation + velocity * delta * directionsRaw / vectorLength;
+    directions = floor(velocity * (translation + delta * directionsRaw / vectorLength));
 end
