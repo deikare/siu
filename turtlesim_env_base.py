@@ -46,7 +46,7 @@ class TurtlesimEnvBase(metaclass=abc.ABCMeta):
         self.routes={}
         self.agents={}
         # TODO: załadowanie tras agentów do self.routes
-        with open('scenariusz1.csv',newline='') as csvfile:
+        with open(routes_fname, newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=';')
             
             for row in reader:
