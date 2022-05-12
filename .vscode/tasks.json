@@ -4,10 +4,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "run script",
+            "label": "run-script",
             "type": "shell",
             "linux" :{
-                "command": "./copy-to-container.sh -f ${file} && ./run-in-container.sh -f ${file}"
+                "command": "./copy-to-container.sh -f ${relativeFile} && ./run-in-container.sh -f ${relativeFile}"
             }
         }
     ]
