@@ -9,6 +9,11 @@
             "linux" :{
                 "command": "./copy-to-container.sh -f ${relativeFile} && ./run-in-container.sh -f ${relativeFile}"
             }
+        },
+        {
+            "label": "echo",
+            "type": "shell",
+            "command": "echo LOL"
         }
     ]
 }

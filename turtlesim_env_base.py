@@ -50,7 +50,7 @@ class TurtlesimEnvBase(metaclass=abc.ABCMeta):
             reader = csv.reader(csvfile, delimiter=';')
             
             for row in reader:
-                route = (int(row[1]), float(row[2]), float(row[3]), float(row[4]), float(row[5]), float(row[6]))
+                route = (int(row[1]), float(row[2]), float(row[3]), float(row[4]), float(row[5]), float(row[6]), float(row[7]))
 
                 if row[0] not in self.routes:
                     self.routes[row[0]] = []
@@ -64,7 +64,8 @@ class TurtlesimEnvBase(metaclass=abc.ABCMeta):
                     cnt +=1
                     if agent_cnt is not None and cnt>agent_cnt:                 # ogranicz liczbę tworzonych żółwi
                         return
-                    tname=f'{route}_{sec_id}_{seq}'         # identyfikator agenta: trasa, segment pocz., nr kolejny
+                    tname='t' + str(route) + '_' + str(sec_id) + '_' + str(seq)         # identyfikator agenta: trasa, segment pocz., nr kolejny
+                    # tname=f'{route}_{sec_id}_{seq}'
                     print(f'Agent {tname}')
                     ta=TurtleAgent()                        # utwórz agenta lokalnie i zainicjuj tożsamość
                     ta.route=route
@@ -73,7 +74,7 @@ class TurtlesimEnvBase(metaclass=abc.ABCMeta):
                     self.agents[tname]=ta
                     if self.tapi.hasTurtle(tname):          # utwórz/odtwórz agenta w symulatorze
                         self.tapi.killTurtle(tname)
-                    self.tapi.spawnTurtle(tname,Pose())
+                    self.tapi.spawnTurtle(tname,Pose(x=10,y=10,theta=0))
                     self.tapi.setPen(tname,turtlesim.srv.SetPenRequest(off=1))  # unieś rysik
                     ta.color_api=TurtlesimSIU.ColorSensor(tname)                # przechowuj obiekt sensora koloru
     # pozycjonuje żółwie na ich trasach , zeruje licznik kroków
