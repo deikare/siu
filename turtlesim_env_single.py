@@ -2,6 +2,7 @@
 from tkinter.tix import Tree
 import numpy as np
 import rospy
+import time
 from turtlesim.msg import Pose
 from geometry_msgs.msg import Twist
 
@@ -74,6 +75,7 @@ if __name__ == "__main__":
     import random
     env=provide_env()
     env.setup(routes_fname="scenariusz1.csv", agent_cnt=1)
+    time.sleep(1)
     agents = env.reset(sections='random')
     
     for step in range(10):
