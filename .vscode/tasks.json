@@ -11,9 +11,11 @@
             }
         },
         {
-            "label": "echo",
+            "label": "copy-file-to-docker",
             "type": "shell",
-            "command": "echo LOL"
+            "linux" :{
+                "command": "./copy-to-container.sh -f ${relativeFile}"
+            }
         }
     ]
 }
