@@ -4,7 +4,7 @@ Repozytorium w którym znajdują się pliki należące do realizowanego przez na
 
 ## Rozpoczęcie pracy
 
-Aby uruchomić środowisko na którym pracujemy należy mieć zainstalwane narzęcie docker oraz docker-compose
+Aby uruchomić środowisko na którym pracujemy należy mieć zainstalowane narzęcie ```docker``` oraz ```docker-compose```
 
 ### Uruchomienie kontenera siu 
 ```docker-compose up -d``` (do obserwowania logów kontenera można wykorzystać ```docker-compose logs -f```)
