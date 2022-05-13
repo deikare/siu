@@ -4,19 +4,23 @@ Repozytorium w którym znajdują się pliki należące do realizowanego przez na
 
 ## Rozpoczęcie pracy
 
-Aby uruchomić środowisko na którym pracujemy należy mieć zainstalwane narzęcie docker
-Po wpisaniu polecenia (może być wymagane dodanie ```sudo```):
-```
-docker run -p 6080:80 dudekw/siu-base
-```
-w przeglądarce po wpisaniu adresu ```localhost:6080``` pojawi się zdalny pulpit.
+Aby uruchomić środowisko na którym pracujemy należy mieć zainstalowane narzęcie ```docker``` oraz ```docker-compose```
 
-Po uruchomieniu zdalnego pulpitu należy uruchmoić LXTerminal i w nim wprowadzić komendę 
-```
-roslaunch turtlesim siu.launch
-```
+### Uruchomienie kontenera siu 
+```docker-compose up -d``` (do obserwowania logów kontenera można wykorzystać ```docker-compose logs -f```)
+
+### Uruchamianie środowiska symulacyjnego
+
+W przeglądarce po wpisaniu adresu ```localhost:6080``` pojawi się zdalny pulpit. Po uruchomieniu zdalnego pulpitu należy uruchmoić LXTerminal i w nim wprowadzić komendę uruchamiającą środowisko symulacyjne ```roslaunch turtlesim siu.launch```
+
+### Uruchamianie plików w kontenerze
+
+Pliki kopiujemy do kontenera poleceniem ```./copy-to-container.sh -f {nazwa pliku}``` oraz uruchamiamy ```./run-in-container -f {nazwa pliku}```. W ramach VSCode zostały zdefiniowane dwa taski - jeden do kopiowania, drugi do kopiowania+uruchamiania pliku - wystarczy [zbindować sobie uruchamianie każdego z tych tasków](https://code.visualstudio.com/docs/editor/tasks#_binding-keyboard-shortcuts-to-tasks).
 
 ## Podmiana planszy
-Aby zmienić planszę na stworzony przez nas tor należy w dockerze zmienić plik roads.png na stworzony przez nas plik board.png
+Nasza plansza jest zamontowana jako wolumem w kontenerze (skonfigurowane jest to w ```docker-compose.yml```)
+
+## Napotkane błędy / problemy
+* identyfikatory scenariuszy testowych należy rozpoczynać od litery
 
 ## Wykonane zmiany w plikach
