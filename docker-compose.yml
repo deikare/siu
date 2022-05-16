@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3.3'
 services:
   siu:
     image: dudekw/siu-base
@@ -6,4 +6,4 @@ services:
     ports:
       - "6080:80"
     volumes:
-      - ${PWD}/board.png:/roads.png
+      - ./board/board.png:/roads.png
