@@ -1,3 +1,4 @@
+#!/bin/bash
 CONTAINER="siu"
 FILE=""
 CONTAINER_DIRECTORY="/root"
