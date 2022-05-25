@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  siu:
+    image: dudekw/siu-base
+    container_name: siu
+    ports:
+      - "6080:80"
+    volumes:
+      - ./board/board.png:/roads.png
