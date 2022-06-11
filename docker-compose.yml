@@ -1,9 +1,11 @@
 version: '3.3'
 services:
   siu:
-    image: dudekw/siu-base
+    build: 
+      context: .
+      args:
+        BOARD_FILENAME: board_rondo.png
+
     container_name: siu
     ports:
       - "6080:80"
-    volumes:
-      - ./board/board_rondo.png:/roads.png
