@@ -6,8 +6,8 @@ from tensorflow import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv3D, Permute, Dense, Flatten
 from tensorflow.keras.models import load_model
-from source.turtlesim_env_base import TurtlesimEnvBase
-import source.turtlesim_env_single as turtlesim_env_single
+from turtlesim_env_base import TurtlesimEnvBase
+import turtlesim_env_single as turtlesim_env_single
 import time
 
 
