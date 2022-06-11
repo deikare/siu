@@ -102,7 +102,6 @@ def provide_env():
 # TODO (*) ruch losowy wszystkich, z wykrywaniem kolizji
 if __name__ == "__main__":
     import random
-    print('dupa2')
     env = provide_env()
     env.setup(routes_fname="routes/route-rondo.csv")
     time.sleep(1)
