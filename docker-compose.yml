@@ -6,4 +6,4 @@ services:
     ports:
       - "6080:80"
     volumes:
-      - ./board/board.png:/roads.png
+      - ./board/board_rondo.png:/roads.png
